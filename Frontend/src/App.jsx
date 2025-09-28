@@ -16,8 +16,10 @@ const App = () => {
     prism.highlightAll()
   },)
 
+  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   async function reviewcode(){
-    const request = await axios.post("http://localhost:3000/ai/get-review", { code })
+    const request = await axios.post(`${API_BASE}/ai/get-review`, { code })
     setreview(request.data)
   }
   
